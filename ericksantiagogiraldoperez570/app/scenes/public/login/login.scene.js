@@ -18,6 +18,7 @@ export function loginScene(){
             
             <button type="submit">Login</button>
         </form>
+        <button id="gotoRegis">Go to register</button>
     `
     const $loginForm = document.getElementById("loginForm")
     $loginForm.addEventListener('submit', async (e) =>{
@@ -55,5 +56,11 @@ export function loginScene(){
         localStorage.setItem('role', `${usrData.roleId}`)
         alert(`Welcome to your page ${usrData.name}!`)
         navigateTo('/dashboard')
+    })
+
+    // Go to login
+    const $gotoRegisBttn = document.getElementById("gotoRegis")
+    $gotoRegisBttn.addEventListener('click', ()=>{
+        navigateTo("/register")
     })
 }

@@ -45,6 +45,12 @@
       "birthdate": "1995-04-14T00:02:00Z",
       "password": "U2FsdGVkX1/GPQGGuvpeLrLAD2Ov7OPkuKOAaalX7yQ=",
       "roleId": "1"
+    },
+    {
+      "id": "3df9",
+      "name": "fede",
+      "email": "fede@giraldo.com",
+      "password": "U2FsdGVkX1/pYX4wUK1snzNATxNic8uBk5cEQZrivMk="
     }
   ],
   "booking": [

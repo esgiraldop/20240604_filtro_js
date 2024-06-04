@@ -39,7 +39,7 @@ export function router(){
         navigateTo('/login')
         return
     }
-    // navigateTo('/notFound')
+    navigateTo('/notFound')
 }
 
 export function navigateTo(pathname){
