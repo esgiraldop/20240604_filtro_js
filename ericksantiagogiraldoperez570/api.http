@@ -1,32 +1,38 @@
+###
 # # Get all users
-# GET http://localhost:3000/users
+GET http://localhost:3000/flight
 
+###
 # # Get a specific user
-# GET http://localhost:3000/users/2
+GET http://localhost:3000/flight/2
 
+###
 # # Create a new user
-# POST http://localhost:3000/users
-# Content-Type: application/json
+POST http://localhost:3000/flight
+Content-Type: application/json
 
-# {
-#   "name": "John Doe ultimo agregado",
-#   "email": "johndoe@example.com",
-#   "roleId" : 1
-# }
+{
+    "flightNumber": "AAL606",
+    "origin": "KMIA",
+    "destination": "SKBO",
+    "departureDate": "2024-06-02T15:00:00Z",
+    "arrivalDate": "2024-06-02T18:50:00Z",
+    "capacity": "5"
+}
 
-# # Update a user
-# PUT http://localhost:3000/users/3
-# Content-Type: application/json
+###
+# # Update a flight
+PATCH http://localhost:3000/flight/2
+Content-Type: application/json
 
-# {
-#   "name": "John Doe updated",
-#   "email": "nuevoemail@gmail.com",
-#     "roleId" : 20
-# }
+{
+  "destination": "SKRG"
+}
 
+###
 # # Delete a user
-# DELETE http://localhost:3000/users/3
+DELETE http://localhost:3000/users/3
 
+###
 # ### User Challenges
-
-# GET http://localhost:3000/user_challenge?userId=1&_embed=challenge
+GET http://localhost:3000/user_challenge?userId=1&_embed=challenge
