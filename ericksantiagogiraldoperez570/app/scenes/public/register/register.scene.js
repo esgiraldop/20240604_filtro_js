@@ -2,6 +2,7 @@ import { navigateTo } from '../../../router'
 import { encryptData } from '../../../helpers/encrypt'
 import { fetchApi } from '../../../helpers/fetch-api'
 import styles from '../../../helpers/styles.css'
+import { emailValidator } from '../../../helpers/emailValidator'
 
 export function registerScene(){
     const $root = document.getElementById("root")
@@ -35,6 +36,12 @@ export function registerScene(){
             alert("Please enter all the fields")
             return
         }
+
+        if(!emailValidator($email.value)){
+            alert("Please enter a valid email. It should be of type jhondoe@example.com")
+            return
+        }
+
         const userByEmail = await fetchApi(`http://localhost:3000/users?email=${$email.value}`, {})
         if(userByEmail.length > 0){
             alert("The user email is already in use. Please try with another email")
