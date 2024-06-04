@@ -1,5 +1,6 @@
-// import { navigateTo } from '../../../../../practica 2/app/router'
-// import { fetchApi } from '../../../helpers/fetch-api'
+import { decryptData } from '../../../helpers/encrypt'
+import { fetchApi } from '../../../helpers/fetch-api'
+import { navigateTo } from '../../../router'
 // import styles from '../../../helpers/styles.css'
 // import globalStyles from '../../../helpers/styles.css'
 

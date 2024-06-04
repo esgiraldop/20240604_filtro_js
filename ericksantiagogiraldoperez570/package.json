@@ -10,7 +10,8 @@
     "dependencies": {
         "quill": "^2.0.2",
         "quill-delta-to-html": "^0.12.1",
-        "three.js": "^0.77.1"
+        "three.js": "^0.77.1",
+        "crypto-js": "^4.2.0"
     },
     "devDependencies": {
         "@babel/core": "^7.0.0",
