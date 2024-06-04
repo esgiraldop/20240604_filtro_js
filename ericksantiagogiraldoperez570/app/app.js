@@ -5,6 +5,5 @@ export function app() {
     if(!$root){
         throw new Error("The page could not be loaded")
     }
-    document.write("Hello from app")
     router()
 }
