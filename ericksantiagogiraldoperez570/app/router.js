@@ -7,9 +7,7 @@ export function router(){
     const token = localStorage.getItem('token')
     const usrRole = localStorage.getItem('role')
 
-    console.log("Hello before the first conditional")
     if(pathname === "/" || pathname === "/login" || pathname === "/register"){
-        console.log("Hello from within the first conditional")
         if(token){
             navigateTo("/dashboard/home")
             return
@@ -22,12 +20,17 @@ export function router(){
     
     const publicRoute = routes.public.find(path => path.path === pathname)
     
+    console.log("pathname: ", pathname)
+    console.log("routes.private: ", routes.private)
     const privateRoute = routes.private.find(path => path.path === pathname)
+
+    console.log("privateRoute: ", privateRoute)
 
     if(publicRoute){
         publicRoute.scene()
         return
     }
+    
     if(privateRoute){
         console.log("Hello.privateRoute exists")
         if(token && usrRole){

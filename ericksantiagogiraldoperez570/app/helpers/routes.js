@@ -10,6 +10,6 @@ export const routes = {
         {path: "/notFound", scene: notFoundScene}
     ],
     private:[
-        {home: "/dashboard/home", scene: homeScene}
+        {path: "/dashboard", scene: homeScene, roles:["1", "2"]}
     ]
 }

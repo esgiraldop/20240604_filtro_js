@@ -5,7 +5,7 @@ export function DashboardLayout(pageContent, logic) {
 
     root.innerHTML = `
         <div id="container" class="">
-            <div class="${styles.navbar}">
+            <div class="">
                 ${NavbarLayout()}
             </div>
             <div class="">
