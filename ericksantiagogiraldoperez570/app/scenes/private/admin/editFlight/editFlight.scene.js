@@ -4,16 +4,16 @@ import styles from './editFlight.styles.css'
 
 export function editFlightScene(params){
     const pageContent = `
-    <h3>Note: Do not edit a field if you want to keep the same information of that specific field in the database</h3>
+    <h3>Note: Do not edit a field if you want to keep the same information of that specific field in the database. You can only edit the departure, arrival dates and the capacity of the flight</h3>
     <form class="${styles.create_form}" id="flights_form">
         <label for="flightNum">Flight number</label>
-        <input type="text" name="flightNum">
+        <input type="text" name="flightNum" disabled>
 
         <label for="origin">Origin</label>
-        <input name="origin" type="text">
+        <input name="origin" type="text" disabled>
 
         <label for="destination">Destination</label>
-        <input name="destination" type="text">
+        <input name="destination" type="text" disabled>
 
         <label for="depDate">Departure date</label>
         <input type="date" name="depDate">
