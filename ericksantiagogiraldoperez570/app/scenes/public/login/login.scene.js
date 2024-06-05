@@ -59,7 +59,7 @@ export function loginScene(){
         // Routing to dashboard visitor or to dashboard admin scenes
         const usrRole = localStorage.getItem("role")
         console.log("usrRole: ", usrRole)
-        usrRole=="1"?navigateTo('/dashboard'):navigateTo('/dashboardAdmin')
+        usrRole=="1"?navigateTo(`/dashboard?userId=${usrData.id}`):navigateTo('/dashboardAdmin')
         
     })
 
