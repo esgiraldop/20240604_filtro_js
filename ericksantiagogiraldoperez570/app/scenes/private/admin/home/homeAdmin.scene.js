@@ -8,6 +8,7 @@ export function homeAdminScene(){
             <h2>Welcome admin. These are the current flights</h2>
             <div id="flights_container">
             </div>
+            <button id="createFlightBttn">Create flight</button>
         </div>
     `
 
@@ -85,7 +86,12 @@ export function homeAdminScene(){
                 }
                 alert("Deletion cancelled")
             })})
-    
+        
+        //Event listener for create flights
+        const $createFlightBttn = document.getElementById("createFlightBttn")
+        $createFlightBttn.addEventListener('click', e=>
+            navigateTo(`/homeAdmin/createFlight`)
+        )
     }
     return{pageContent, logic}
 }
