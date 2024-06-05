@@ -24,14 +24,14 @@ export function editFlightScene(params){
         <label for="capacity">Capacity</label>
         <input type="number" id="quantity" name="capacity" min="0" max="350">
 
-        <button class="${styles.create_form_elem}">Save</button>
+        <button class="${styles.create_form_elem}" id="saveBttn">Save</button>
     </form>
     `
 
     const logic = async () =>{
         const flightId = params.get('flightId')
         // Getting the info of the flight from the database
-        const negMsg = `No flight with id ${flightId} could be retrieved. Please try with another id` //In theory, this message should never be displayed
+        let negMsg = `No flight with id ${flightId} could be retrieved. Please try with another id` //In theory, this message should never be displayed
         const flightDataArray = await fetchApi(`http://localhost:3000/flight?id=${flightId}`, {}, negMsg)
         const flightData = flightDataArray[0]
         if(!flightData){
@@ -54,6 +54,28 @@ export function editFlightScene(params){
         $capacity.value = flightData.capacity
 
         //Sending the info to the database
+        const $saveBttn = document.getElementById("saveBttn")
+        
+        $saveBttn.addEventListener('click', (e)=>{
+            e.preventDefault()
+            negMsg = `Flight with flight number ${flightData.flightNumber} could not be edited`
+            const posMsg = `Flight with flight number ${flightData.flightNumber} was edited successfully`
+            const sentData = fetchApi(`http://localhost:3000/flight/${flightId}`, {
+                method: "PUT",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({
+                    flightNumber: $flightNum.value,
+                    origin: $origin.value,
+                    destination: $destination.value,
+                    departureDate: $depDate.value,
+                    arrivalDate: $arrDate.value,
+                    capacity: $capacity.value
+                })
+            }, negMsg, posMsg)
+        })
+        
     }
 
     return {pageContent, logic}

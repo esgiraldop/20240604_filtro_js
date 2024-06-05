@@ -1,13 +1,13 @@
 {
   "flight": [
     {
-      "id": "1",
       "flightNumber": "AVA405",
       "origin": "SKBO",
-      "destination": "SKRG",
-      "departureDate": "2024-06-02T12:00:00Z",
-      "arrivalDate": "2024-06-02T12:50:00Z",
-      "capacity": "2"
+      "destination": "SKBO",
+      "departureDate": "2024-06-02",
+      "arrivalDate": "2024-06-02",
+      "capacity": "2",
+      "id": "1"
     },
     {
       "id": "2",
