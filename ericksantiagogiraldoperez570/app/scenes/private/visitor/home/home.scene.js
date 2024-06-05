@@ -5,8 +5,15 @@ import styles from "./home.styles.css"
 export function homeScene(params){
     const pageContent = `
         <div>
-            <h2>Welcome visitor. These are the current flights</h2>
-            <div id="flights_container">
+            <div id="crrntFlights">
+                <h2>Welcome visitor. These are the current flights</h2>
+                <div id="flights_container">
+                </div>
+            </div>
+            <div id="crrntReservations">
+                <h2>These are your current reservations</h2>
+                <div id="reservations_container">
+                </div>
             </div>
         </div>
     `
@@ -56,6 +63,15 @@ export function homeScene(params){
                         `
                 }).join('')}
         `
+        //TODO: User has to be able to see their reservations
+        // //Displaying current reservations
+        // const $reservsContainer = document.getElementById("reservations_container")
+        // const crrntReservations = await fetchApi(`http://localhost:3000/booking?userId=1`, )
+        // $flightsContainer.innerHTML = `
+                
+        // `
+
+
         //Adding event listeners to buttons
         const $bookButtons = document.querySelectorAll("button[action=book]")
         const $bookButtonsArray = [...$bookButtons]

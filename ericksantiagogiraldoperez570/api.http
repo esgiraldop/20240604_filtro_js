@@ -1,6 +1,6 @@
 ###
 # # Get all users
-GET http://localhost:3000/flight
+GET http://localhost:3000/booking?userId=1
 
 ###
 # # Get a specific user
