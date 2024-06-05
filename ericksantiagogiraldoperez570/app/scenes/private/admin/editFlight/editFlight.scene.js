@@ -57,7 +57,7 @@ export function editFlightScene(params){
         //Sending the info to the database
         const $saveBttn = document.getElementById("saveBttn")
         
-        $saveBttn.addEventListener('click', (e)=>{
+        $saveBttn.addEventListener('click', async (e)=>{
             e.preventDefault()
 
             //Checking the admin filled all the fields
@@ -68,7 +68,7 @@ export function editFlightScene(params){
 
             negMsg = `Flight with flight number ${flightData.flightNumber} could not be edited`
             const posMsg = `Flight with flight number ${flightData.flightNumber} was edited successfully`
-            const sentData = fetchApi(`http://localhost:3000/flight/${flightId}`, {
+            const sentData = await fetchApi(`http://localhost:3000/flight/${flightId}`, {
                 method: "PUT",
                 headers: {
                     "Content-type": "application/json"
@@ -89,7 +89,7 @@ export function editFlightScene(params){
             navigateTo("/dashboardAdmin")
         })
 
-        const $goBack2flightsBttn = document.getElementById("")
+        const $goBack2flightsBttn = document.getElementById("goBack2flightsBttn")
         goBack2flightsBttn.addEventListener('click', () =>{
             navigateTo("/dashboardAdmin")
         })

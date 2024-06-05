@@ -63,7 +63,15 @@ export function homeScene(params){
 
         $bookButtonsArray.forEach($bookBttn => {
             $bookBttn.addEventListener('click', async (e) =>{
-                
+                //Checking first if the flight has enough capacity
+                const fetchedFlightData = await fetchApi(`http://localhost:3000/flight/${e.target.id}`, {})
+                console.log("fetchedFlightData.capacity: ", fetchedFlightData.capacity)
+                if(fetchedFlightData.capacity < 1){
+                    alert("This flight is full already. You cannot book this flight")
+                    return
+                }
+
+                //Saving the new info to the database
                 const negMsg = `The flight with flight number ${e.target.getAttribute('flightnumber')} could not be booked`
                 const posMsg = `The flight with flight number ${e.target.getAttribute('flightnumber')} was booked succesfully`
                 const usrResponse = confirm("Do you want to book this flight?")
@@ -83,8 +91,21 @@ export function homeScene(params){
                         alert("There was a problem booking the flight. Please try again later")
                         return
                     }
-                    //TODO: Update the flight capacity
 
+                    //TODO: Update the flight capacity
+                    const bookdFlightId = sentData.flightId
+                    const negMsg = `The capacity of flight with flight number ${e.target.getAttribute('flightnumber')} could not be updated`
+                    const posMsg = `The capacity of flight with flight number ${e.target.getAttribute('flightnumber')} was successfully updated`
+                    const editedData = await fetchApi(`http://localhost:3000/flight/${bookdFlightId}`, {
+                        method: "PATCH",
+                        headers: {
+                            "Content-type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            capacity: `${Number(fetchedFlightData.capacity) - 1}`
+                        })
+                    }, negMsg, posMsg)
+                    navigateTo('/dashboard') //El propio machetazo
                     return
                 }
                 alert("Booking cancelled")
