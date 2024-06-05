@@ -50,8 +50,8 @@ export function createFlightScene(){
             }
 
             //Checking the string lengths for the fields
-            if($flightNum.value.length > 20 || $origin.value.length > 20 || $destination.value.length > 20){
-                alert("The maximum number of characters for flight number, flight origin and flight destination is 20. Please make sure you do not exceed this value")
+            if($flightNum.value.length > 20 || $origin.value.length > 50 || $destination.value.length > 50){
+                alert("The maximum number of characters for the flight numberis 20, and the maximum number of characters for flight origin and flight destination is 50. Please make sure you do not exceed this value")
                 return
             }
 
