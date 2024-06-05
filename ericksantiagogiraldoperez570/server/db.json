@@ -17,15 +17,6 @@
       "departureDate": "2024-06-02T15:00:00Z",
       "arrivalDate": "2024-06-02T18:50:00Z",
       "capacity": "5"
-    },
-    {
-      "id": "aa92",
-      "flightNumber": "test",
-      "origin": "test",
-      "destination": "test",
-      "departureDate": "2024-06-27",
-      "arrivalDate": "2024-06-27",
-      "capacity": "7"
     }
   ],
   "roles": [

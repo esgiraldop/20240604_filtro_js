@@ -26,6 +26,7 @@ export function editFlightScene(params){
 
         <button class="${styles.create_form_elem}" id="saveBttn">Save</button>
     </form>
+    <button id="goBack2flightsBttn">Go back to flights</button>
     `
 
     const logic = async () =>{
@@ -58,6 +59,13 @@ export function editFlightScene(params){
         
         $saveBttn.addEventListener('click', (e)=>{
             e.preventDefault()
+
+            //Checking the admin filled all the fields
+            if(!$flightNum.value || !$origin.value || !$destination.value || !$depDate.value || !$arrDate.value || !$capacity.value){
+                alert("Please fill in all the fields")
+                return
+            }
+
             negMsg = `Flight with flight number ${flightData.flightNumber} could not be edited`
             const posMsg = `Flight with flight number ${flightData.flightNumber} was edited successfully`
             const sentData = fetchApi(`http://localhost:3000/flight/${flightId}`, {
@@ -74,8 +82,17 @@ export function editFlightScene(params){
                     capacity: $capacity.value
                 })
             }, negMsg, posMsg)
+            //Validating the data was sent
+            if(!sentData){
+                alert("There was an error posting the data. Please try again later")
+            }
+            navigateTo("/dashboardAdmin")
         })
-        
+
+        const $goBack2flightsBttn = document.getElementById("")
+        goBack2flightsBttn.addEventListener('click', () =>{
+            navigateTo("/dashboardAdmin")
+        })
     }
 
     return {pageContent, logic}

@@ -25,6 +25,7 @@ export function createFlightScene(){
 
         <button class="${styles.create_form_elem}" id="saveBttn">Save</button>
     </form>
+    <button id="goBack2flightsBttn">Go back to flights</button>
     `
 
     const logic = async () =>{
@@ -39,11 +40,18 @@ export function createFlightScene(){
         //Sending the info to the database
         const $saveBttn = document.getElementById("saveBttn")
         
-        $saveBttn.addEventListener('click', (e)=>{
+        $saveBttn.addEventListener('click', async (e)=>{
             e.preventDefault()
+
+            //Checking the admin filled all the fields
+            if(!$flightNum.value || !$origin.value || !$destination.value || !$depDate.value || !$arrDate.value || !$capacity.value){
+                alert("Please fill in all the fields")
+                return
+            }
+
             const negMsg = `Flight with flight number ${$flightNum.value} could not be created`
             const posMsg = `Flight with flight number ${$flightNum.value} was created successfully`
-            const sentData = fetchApi(`http://localhost:3000/flight/`, {
+            const sentData = await fetchApi(`http://localhost:3000/flight/`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
@@ -57,8 +65,18 @@ export function createFlightScene(){
                     capacity: $capacity.value
                 })
             }, negMsg, posMsg)
+            //Validating the data was sent
+            if(!sentData){
+                alert("There was an error posting the data. Please try again later")
+            }
+            navigateTo("/dashboardAdmin")
         })
         
+        const $goBack2flightsBttn = document.getElementById("")
+        goBack2flightsBttn.addEventListener('click', () =>{
+            navigateTo("/dashboardAdmin")
+        })
+
     }
 
     return {pageContent, logic}
