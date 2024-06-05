@@ -49,6 +49,12 @@ export function createFlightScene(){
                 return
             }
 
+            //Checking the string lengths for the fields
+            if($flightNum.value.length > 20 || $origin.value.length > 20 || $destination.value.length > 20){
+                alert("The maximum number of characters for flight number, flight origin and flight destination is 20. Please make sure you do not exceed this value")
+                return
+            }
+
             const negMsg = `Flight with flight number ${$flightNum.value} could not be created`
             const posMsg = `Flight with flight number ${$flightNum.value} was created successfully`
             const sentData = await fetchApi(`http://localhost:3000/flight/`, {
