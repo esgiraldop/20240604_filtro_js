@@ -18,11 +18,18 @@ export function DashboardLayout(pageContent, logic) {
     logic();
 
     //Logout button
-    const $logout = document.getElementById("logoutBttn")
-    $logout.addEventListener('click', ()=>{
+    const $logoutBttn = document.getElementById("logoutBttn")
+    $logoutBttn.addEventListener('click', ()=>{
         localStorage.removeItem('token')
         localStorage.removeItem('role')
         navigateTo('/login')
+    })
+    //Book flight button
+    const $bookFlightBttn = document.getElementById("bookFlightBttn")
+    $bookFlightBttn.addEventListener('click', ()=>{
+        const usrRole = localStorage.getItem("role")
+        const userId = localStorage.getItem("userId")
+        usrRole=="1"?navigateTo(`/dashboard?userId=${userId}`):navigateTo('/dashboardAdmin')
     })
     return
 }

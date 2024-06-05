@@ -61,10 +61,10 @@
       "bookingDate": "2024-05-02T12:00:00Z"
     },
     {
-      "id": "1929",
-      "flightId": "AVA405",
+      "id": "0ed0",
+      "flightId": "1",
       "userId": "2",
-      "bookingDate": "2024-06-05T01:39:58.145Z"
+      "bookingDate": "2024-06-05T01:52:07.324Z"
     }
   ]
 }

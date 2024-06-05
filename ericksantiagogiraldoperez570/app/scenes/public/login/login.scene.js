@@ -54,11 +54,11 @@ export function loginScene(){
         //Login successful
         localStorage.setItem('token', Math.random().toString(32).substring(2))
         localStorage.setItem('role', `${usrData.roleId}`)
+        localStorage.setItem('userId', `${usrData.id}`)
         alert(`Welcome to your page ${usrData.name}!`)
 
         // Routing to dashboard visitor or to dashboard admin scenes
         const usrRole = localStorage.getItem("role")
-        console.log("usrRole: ", usrRole)
         usrRole=="1"?navigateTo(`/dashboard?userId=${usrData.id}`):navigateTo('/dashboardAdmin')
         
     })
