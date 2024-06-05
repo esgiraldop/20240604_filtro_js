@@ -55,10 +55,15 @@ export function loginScene(){
         localStorage.setItem('token', Math.random().toString(32).substring(2))
         localStorage.setItem('role', `${usrData.roleId}`)
         alert(`Welcome to your page ${usrData.name}!`)
-        navigateTo('/dashboard')
+
+        // Routing to dashboard visitor or to dashboard admin scenes
+        const usrRole = localStorage.getItem("role")
+        console.log("usrRole: ", usrRole)
+        usrRole=="1"?navigateTo('/dashboard'):navigateTo('/dashboardAdmin')
+        
     })
 
-    // Go to login
+    // Go to registration
     const $gotoRegisBttn = document.getElementById("gotoRegis")
     $gotoRegisBttn.addEventListener('click', ()=>{
         navigateTo("/register")

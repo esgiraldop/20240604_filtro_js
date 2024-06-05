@@ -20,11 +20,7 @@ export function router(){
     
     const publicRoute = routes.public.find(path => path.path === pathname)
     
-    console.log("pathname: ", pathname)
-    console.log("routes.private: ", routes.private)
     const privateRoute = routes.private.find(path => path.path === pathname)
-
-    console.log("privateRoute: ", privateRoute)
 
     if(publicRoute){
         publicRoute.scene()
@@ -32,21 +28,18 @@ export function router(){
     }
     
     if(privateRoute){
-        console.log("Hello.privateRoute exists")
         if(token && usrRole){
             if(!privateRoute.roles.includes(usrRole)){
                 navigateTo('/notFound')
                 return
             }
-            const {pageContent, logic} = privateRoute.scene()
-            console.log("Are you triying to pass over here?")
+            const {pageContent, logic} = privateRoute.scene(params)
             DashboardLayout(pageContent, logic)
             return
         }
         navigateTo('/login')
         return
     }
-    console.log("oelo")
     navigateTo('/notFound')
 }
 

@@ -1,3 +1,4 @@
+import { navigateTo } from "../../router";
 import { NavbarLayout } from "../navbar/navbar.layout";
 
 export function DashboardLayout(pageContent, logic) {
