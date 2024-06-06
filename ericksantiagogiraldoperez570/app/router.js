@@ -40,6 +40,11 @@ export function router(){
         navigateTo('/login')
         return
     }
+    if(!token){
+        localStorage.removeItem('role')
+        localStorage.removeItem('token')
+        localStorage.removeItem('usrId')
+    }
     navigateTo('/notFound')
 }
 

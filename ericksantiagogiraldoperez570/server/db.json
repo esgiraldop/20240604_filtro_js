@@ -56,10 +56,12 @@
       "roleId": "1"
     },
     {
-      "id": "3df9",
-      "name": "fede",
-      "email": "fede@giraldo.com",
-      "password": "U2FsdGVkX1/pYX4wUK1snzNATxNic8uBk5cEQZrivMk="
+      "id": "d423",
+      "name": "erick_nuevo",
+      "email": "erick@nuevo.com",
+      "password": "U2FsdGVkX18wmyqL2zqQCXxeOLfL84hojZxAJP/D+XU=",
+      "birthdate": "2024-06-20",
+      "roleId": "1"
     }
   ],
   "booking": [

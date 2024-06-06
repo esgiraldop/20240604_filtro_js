@@ -22,6 +22,7 @@ export function registerScene(){
 
         <button type="submit">Register</button>
     </form>
+    <button id="gotoLogin">Go to login</button>
     `
     const $form = document.getElementsByTagName("form")[0]
 
@@ -31,6 +32,7 @@ export function registerScene(){
         const $username = document.querySelector("input[type=text]")
         const $email = document.querySelector("input[type=email]")
         const $password = document.querySelector("input[type=password]")
+        const $birthdate = document.querySelector("input[type=date]")
         console.log("$username: ", $username)
         if(!$username.value || !$email.value || !$password.value){
             alert("Please enter all the fields")
@@ -57,11 +59,19 @@ export function registerScene(){
             body: JSON.stringify({
                 name: $username.value,
                 email: $email.value,
-                password: encryptData($password.value)
+                password: encryptData($password.value),
+                birthdate: $birthdate.value,
+                roleId: "1",
             })
         }, negMsg, posMsg)
         if(data){
             navigateTo('/login')
         }
+    })
+    // Go to registration
+    const $gotoLoginBttn = document.getElementById("gotoLogin")
+    console.log("$gotoLoginBttn: ", $gotoLoginBttn)
+    $gotoLoginBttn.addEventListener('click', ()=>{
+        navigateTo("/login")
     })
 }
